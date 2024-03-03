@@ -1,0 +1,13 @@
+Introduction:
+Abstract Data Type  - interface         =   What are the expected behaviour from the user point of view
+                                        -   (e.g. queue needs enque & deque mechanisms)
+Data Structures     - implementation    -   How the behaviours are exhibited
+                                        -   (e.g. queue can be implemented ny use of list)
+
+Note:
+Arrays      -   index based
+            -   predefined size (allocates sections within the memory)
+            -   ideal for item retrieval (if index is known)
+LinkedList  -   reference based
+            -   dynamic size
+            -   ideal for insertion & deletion
