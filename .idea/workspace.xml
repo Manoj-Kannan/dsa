@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5720f08-d1cb-4472-8334-532e003b1214" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/doublylinkedlist/DoublyLinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/doublylinkedlist/List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/doublylinkedlist/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/doublylinkedlist/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/queue/array/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/queue/array/Stack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/queue/arraylist/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/queue/arraylist/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/queue/arraylist/Stack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Note.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Note.txt" afterDir="false" />
     </list>
@@ -31,9 +32,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2dAzPKN7nRIYtrosXWthgaUNUmB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -44,6 +45,8 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Application.doublylinkedlist.Main.executor": "Run",
+    "Application.queue.array.Main.executor": "Run",
+    "Application.queue.arraylist.Main.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -60,7 +63,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.doublylinkedlist.Main">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="queue.arraylist" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.queue.array.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="linkedlist.Main" />
       <module name="dsa" />
@@ -87,8 +95,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="queue.array.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="queue.array.Main" />
+      <module name="dsa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="queue.array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="queue.arraylist.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="queue.arraylist.Main" />
+      <module name="dsa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="queue.arraylist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.queue.array.Main" />
+        <item itemvalue="Application.queue.arraylist.Main" />
         <item itemvalue="Application.doublylinkedlist.Main" />
         <item itemvalue="Application.Main" />
       </list>
@@ -102,7 +138,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709465646715</updated>
-      <workItem from="1709465647792" duration="7774000" />
+      <workItem from="1709465647792" duration="12140000" />
     </task>
     <servers />
   </component>

@@ -8,10 +8,17 @@ Note:
 Arrays      -   index based
             -   predefined size (allocates sections within the memory)
             -   ideal for item retrieval (if index is known)
+
 LinkedList  -   reference based
             -   dynamic size
             -   ideal for insertion & deletion
+
 Doubly LinkedList   -   variation of LinkedList, where each element points to both the next & previous item
                     -   can be easily traversed in forward & reverse direction
                     -   adding or removing element from a DLL is more efficient than LL (since we need not keep track of previod node separately)
                     -   extra memory is need (since we store the previous node also)
+
+Queue       -   Abstract Data Type
+            -   implemented using Array / Linked List
+            -   follows Last-In-First-Out Mechanism (LIFO)
+            -   Useful in Memory Management (Stack Memory), recursion, Undo Mechanism
