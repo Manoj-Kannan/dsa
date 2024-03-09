@@ -27,3 +27,20 @@ Queue       -   Abstract Data Type
             -   implemented using Array / Linked List
             -   follows First-In-First-Out Mechanism (FIFO)
             -   Useful in CPU task Scheduling, BFS
+
+Map         -   Abstract Data Type
+            -   Mostly implemented using HashTables (contains slot for storing data)
+            -   or can be implemented using Trees
+            -   Hashing (hashes a key to an index) (elements can be retrieved using same hash (O(1) TimeComplexity))
+            -   Collision - A new key is put into the map where the map already contains the same key.
+                -   Chaining:
+                    -   Both the elements are stored in LinkedList (one after the other) at same hash index.
+                    -   When we try to retrieve the value for the key, we need to iterate through the LL. (becomes O(N) TimeComplexity)
+                -   Open-Addressing:
+                    -   Makes use of Probing mechanism to avoid collision (searches for an empty slot)
+                    -   Linear Probing
+                    -   Quadratic Probing
+                    -   Double Probing
+                -   Finally,
+                    -   In Chaining Mechanism, item will be stored somewhere in the Array (find by hash)/ somewhere in the ArrayList (loop over the LL)
+                    -   In Probing, only one item sill be present in a index (find only by hash)
