@@ -18,7 +18,12 @@ Doubly LinkedList   -   variation of LinkedList, where each element points to bo
                     -   adding or removing element from a DLL is more efficient than LL (since we need not keep track of previod node separately)
                     -   extra memory is need (since we store the previous node also)
 
-Queue       -   Abstract Data Type
+Stack       -   Abstract Data Type
             -   implemented using Array / Linked List
             -   follows Last-In-First-Out Mechanism (LIFO)
             -   Useful in Memory Management (Stack Memory), recursion, Undo Mechanism
+
+Queue       -   Abstract Data Type
+            -   implemented using Array / Linked List
+            -   follows First-In-First-Out Mechanism (FIFO)
+            -   Useful in CPU task Scheduling, BFS
