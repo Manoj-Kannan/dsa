@@ -1,4 +1,4 @@
-package bfs;
+package graph.dfs;
 
 import lombok.Data;
 import lombok.ToString;

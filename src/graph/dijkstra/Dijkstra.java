@@ -1,4 +1,4 @@
-package dijkstra;
+package graph.dijkstra;
 
 import java.util.*;
 import java.util.stream.Stream;

@@ -1,4 +1,4 @@
-package fordfulkerson;
+package graph.fordfulkerson;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

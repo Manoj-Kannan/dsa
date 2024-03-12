@@ -44,3 +44,83 @@ Map         -   Abstract Data Type
                 -   Finally,
                     -   In Chaining Mechanism, item will be stored somewhere in the Array (find by hash)/ somewhere in the ArrayList (loop over the LL)
                     -   In Probing, only one item sill be present in a index (find only by hash)
+
+Graph       -   a collection of nodes that have data and are connected to other nodes
+            -   a node is called "Vertex", connection between nodes is called "Edge", nodes directly linked to a node are called "Neighbours"
+            -   Adjacent/ Non-Adjacent:
+                -   Adjacent    :   2 Nodes connected directly with edges
+                -   Non-Adjacent:   2 Nodes not connected directly with edges (a node connected with its grand-parent)
+            -   Directed/ UnDirected:
+                -   UnDirected  :   2 Nodes are traversed in Forward & Reverse Direction (A -> B, B -> A)
+                -   Directed    :   2 Nodes are traversed in Forward or Reverse Direction only (A -> B (or) B -> A)
+            -   Strongly/ Weekly Connected:
+                -   Strongly    -   graph in which there is a path from each vertex to reach another vertex
+                -   Weekly      -   graph in which a vertex cant be reached another
+            -   Cycle:
+                -   a cycle is detected if a path can be established where only the first & last vertex are repeated
+                -   a cycle is a connected & UnDirected graph
+            -   Representation of Graph:
+                -   Adjacency Matrix:
+                    -   a 2D array of V x V vertices. Each row and column represent a vertex
+                    -   the value of any element a[i][j] is 1, it represents that there is an edge connecting vertex i and vertex j
+                -   Adjacency List:
+                    -   An adjacency list represents a graph as an array of linked lists
+                    -   The index of the array represents a vertex and each element in its linked list represents the other vertices that form an edge with the vertex
+            -   Spanning Tree:
+                -   a sub-graph of a undirected, cyclic, connected graph, which includes all vertices with minimum possible number of edges (no vertex should be missed)
+                -   For a undirected, cyclic, connected graph with 4 vertices, 16 spanning trees can be formed (n^(n-2))
+                -   Applications: Network Routing Protocols, CLuster Analysis
+
+Breadth First Search    -   traverses a graph by visiting every vertex only once
+                        -   must mention the starting vertex to the algorithm (root node)
+                        -   explores all the neighbours of the currNode before moving to the next depth level
+                        -   implemented using Queue (FIFO)
+                            -   when a vertex is discovered it is added to queue
+                            -   remove parent vertex (first vertex in queue) & add neighbouring vertices of parent vertex to queue
+                            -   when the queue becomes empty, the graph is completely traversed
+
+Depth First Search      -   traverses a graph by visiting every vertex only once
+                        -   goes down as far as it can in the given path, then backtracks to closest parent (until it finds another unexplored path and visits it)
+                        -   implemented using Stack (LIFO)
+                            -   when a vertex is discovered it is added to stack
+                            -   pop the parent vertex (visited) & add all its neighbours to stack (non-visited)
+                            -   for each neighbour perform step 2 iteratively
+                        -   response order may vary based the order of traversal through child vertices
+
+Difference:
+BFS     -   Traverses layer by layer
+DFS     -   Traverses one complete branch & moves to another branch
+
+Dijkstra Algorithm      -   finds the shortest path between 2 vertices of a graph
+                        -   Application: Social Networks, Google Maps, IP Routing
+                        -   Any sub-path between the Start & End Vertex, should be the shortest path between 2 vertices
+                        -   e.g. a graph with vertices A, B, C, D. Aim is to find the shortest path from A to D.
+                            Solution is A -> B -> C -> D
+                            Which means, Shortest path from A to C should be A -> B -> C
+                                         Shortest path from B to D should be B -> C -> D
+
+                        -   Implementation:
+                            -   the core idea is to eliminate longer paths between the starting node and all possible destinations
+                            -   Vertices are classified as
+                                -   Settled (minimum distance & predecessor (with min distance) are finalised
+                                -   UnSettled (can be reached from source but minimum distance is not finalised)
+                            -   Iteratively remove all paths with long distances until we mark all UnSettled Vertices as Settled
+
+Ford-Fulkerson Algo     -   determine Maximum Flow in a network
+                        -   flow network is used to describe a network of vertices and edges with a source (S) and a sink (T)
+                        -   S can only send and T can only receive stuff. All other vertices can receive and send an equal amount of stuff through it.
+                        -   Terminologies;
+                            -   Augmenting Path: It is the path available in a flow network.
+                            -   Residual Graph: It represents the flow network that has additional possible flow.
+                            -   Residual Capacity: It is the capacity of the edge after subtracting the flow from the maximum capacity.
+                        -   Working:
+                            -   Initialize the flow in all the edges to 0
+                            -   While there is an augmenting path between the source and the sink, add this path to the flow (e can also consider reverse-path
+                            -   Update the residual graph
+                        -   Explanation:
+                            -   Select any arbitrary path from S to T
+                            -   Find the minimum capacity in the chosen arbitrary path (it represents the maximum flow in the path)
+                            -   Update the capacities accordingly (Residual Capacity) -> Formula = Total Capacity of Vertex - Flow from previous path
+                            -   Select another path from S to T
+                            -   Repeat the above steps...
+                            -   (if the capacity for any edge is full, then that path cannot be used)

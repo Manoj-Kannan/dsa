@@ -1,10 +1,17 @@
-package bfs;
+package graph.dfs;
 
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        // Order of Child is not maintained
+        new DepthFirstSearch<Integer>().traverse(getSoueceVertex());
+        System.out.println();
+        // Order of Child is maintained
+        new DepthFirstSearch<Integer>().traverseRecursively(getSoueceVertex());
+    }
 
+    private static Vertex<Integer> getSoueceVertex() {
         Vertex<Integer> v0 = new Vertex<>(0);
         Vertex<Integer> v1 = new Vertex<>(1);
         Vertex<Integer> v2 = new Vertex<>(2);
@@ -18,7 +25,6 @@ public class Main {
         v4.setNeighbors(Arrays.asList(v2, v6));
         v6.setNeighbors(Arrays.asList(v0));
 
-        new BreadthFirstSearch<>(v0).traverse();
-
+        return v0;
     }
 }

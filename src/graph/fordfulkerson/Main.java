@@ -1,4 +1,4 @@
-package fordfulkerson;
+package graph.fordfulkerson;
 
 import java.util.Map;
 import java.util.HashMap;

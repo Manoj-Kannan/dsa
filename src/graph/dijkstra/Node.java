@@ -1,4 +1,4 @@
-package dijkstra;
+package graph.dijkstra;
 
 import lombok.Getter;
 import lombok.Setter;
