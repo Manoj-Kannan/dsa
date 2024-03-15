@@ -25,6 +25,9 @@ public class Main {
 
         sortAndPrint(new MergeSortTempArray<>(integers.clone()));
         sortAndPrint(new MergeSortTempArray<>(strings.clone()));
+
+        sortAndPrint(new QuickSort<>(integers.clone()));
+        sortAndPrint(new QuickSort<>(strings.clone()));
     }
 
     private static <T extends Comparable<T>> void sortAndPrint(Sort<T> sortingAlgorithm) {
