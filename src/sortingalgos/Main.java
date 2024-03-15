@@ -16,6 +16,9 @@ public class Main {
 
         sortAndPrint(new InsertionSort<>(integers.clone()));
         sortAndPrint(new InsertionSort<>(strings.clone()));
+
+        sortAndPrint(new ShellSort<>(integers.clone()));
+        sortAndPrint(new ShellSort<>(strings.clone()));
     }
 
     private static <T extends Comparable<T>> void sortAndPrint(Sort<T> sortingAlgorithm) {
