@@ -124,3 +124,136 @@ Ford-Fulkerson Algo     -   determine Maximum Flow in a network
                             -   Select another path from S to T
                             -   Repeat the above steps...
                             -   (if the capacity for any edge is full, then that path cannot be used)
+
+Trees       -   Undirected, Connected, Acyclic Graphs
+            -   Node
+                -   A node is an entity that contains a key or value and pointers to its child nodes.
+                -   The last nodes of each path are called leaf nodes that do not contain a link/pointer to child nodes.
+            -   Edge
+                -   It is the link between any two nodes.
+            -   Root
+                -   It is the topmost node of a tree.
+            -   Depth of a Node
+                -   The depth of a node is the number of edges from the root to the node.
+            -   Height of a Node
+                -   The height of a node is the number of edges from the node to the deepest leaf (i.e. the longest path from the node to a leaf node)
+            -   Height of a Tree
+                -   The height of a Tree is the height of the root node or the depth of the deepest node.
+            -   To be a tree, a node can be reached in only one direction (i.e. no. of edges = no. of nodes - 1)
+
+Tree Traversal  -   Inorder traversal
+                    -   Visit all the nodes in the left subtree
+                    -   Then the root node
+                    -   Visit all the nodes in the right subtree
+                -   Preorder traversal
+                    -   Visit root node
+                    -   Visit all the nodes in the left subtree
+                    -   Visit all the nodes in the right subtree
+                -   Postorder traversal
+                    -   Visit all the nodes in the left subtree
+                    -   Visit all the nodes in the right subtree
+                    -   Visit the root node
+
+Binary Tree -   A binary tree is a tree data structure in which each parent node can have at most two children or no children
+
+Binary Search Tree  -   It is called a binary tree because each tree node has a maximum of two children.
+                    -   The properties that separate a binary search tree from a regular binary tree is
+                            -   All nodes of left subtree are less than the root node
+                            -   All nodes of right subtree are more than the root node
+                            -   Both subtrees of each node are also BSTs i.e. they have the above two properties
+                    -   Refer : https://www.programiz.com/dsa/binary-search-tree
+
+AVL Tree    -   If the tree is not a balanced tree (tree contains only right sub-tree or only left sub-tree), the performance of BST decreases.
+            -   AVL tree is a self-balancing binary search tree in which each node maintains extra information called a balance factor whose value is either -1, 0 or +1.
+            -   Balance Factor
+                -   Balance factor of a node in an AVL tree is the difference between the height of the left subtree and that of the right subtree of that node.
+                -   Balance Factor = Height of Left Subtree - Height of Right Subtree
+                -   The value of balance factor should always be -1, 0 or +1.
+
+            -   Rotations
+                -   Rotations are fundamental operations used in AVL trees to maintain balance after insertion or deletion of nodes.
+                -   Rotations are done only on 3 nodes, including the unbalanced node.
+                -   Left Rotation (anti-clockwise rotation)
+                    -   Caused due to Right-Right Insertion of New-Node
+                    -   solves Right-Heavy Situation --> balance factor < -1 (-ve)
+                    -   If a node is added to the right subtree of the right subtree, if the tree gets out of balance, we do a single left rotation.
+                    -   e.g. 10, 20, and 30
+                -   Right Rotation (clockwise rotation)
+                    -   Caused due to Left-Left Insertion of New-Node
+                    -   solves Left-Heavy Situation --> balance factor > 1 (+ve)
+                    -   If a node is added to the left subtree of the left subtree, the AVL tree may get out of balance, we do a single right rotation.
+                    -   e.g. 30, 20, and 10
+                -   Left-Right Rotation
+                    -   Caused due to Right-Left Insertion of New-Node
+                    -   balance of parent - +ve, balance of grandparent - -ve (parent - parent of newly inserted node, grandparent - parent of parent of newly inserted node)
+                    -   Steps:
+                        -   Solve Left-Heavy Situation in Parent (+ve balance) with Right Rotation
+                        -   Solve Right-Heavy Situation in GrandParent (-ve balance) with Left Rotation
+                    -   e.g. 30, 10, and 20
+                -   Right-Left Rotation
+                    -   Caused due to Left-Right Insertion of New-Node
+                    -   balance of parent - -ve, balance of grandparent - +ve
+                    -   Steps:
+                        -   Solve Right-Heavy Situation in Parent (-ve balance) with Left Rotation
+                        -   Solve Left-Heavy Situation in GrandParent (+ve balance) with Right Rotation
+                    -   e.g. 10, 30, and 20
+
+            -   Operations
+                -   Insertion
+                        1 -> START
+                        2 -> Insert the node using BST insertion logic.
+                        3 -> Calculate and check the balance factor of each node.
+                        4 -> If the balance factor follows the AVL criterion, go to step 6
+                        5 -> Else, perform tree rotations according to the insertion done. Once the tree is balanced go to step 6.
+                        6 -> END
+                -   Deletion
+                    -   Similar to BST
+
+Red-Black Tree  -   Red-Black Trees are balanced binary search trees where nodes are colored red or black.
+                -   Conditions
+                    -   The root node is black.
+                    -   Every tree leaf node is always black.
+                    -   Every red node must have black children.
+                    -   There are no two adjacent red nodes (A red node cannot have a red parent or red child).
+                    -   For each node, all paths from the node to its descendant leaves contain the same number of black nodes (ensures that the tree remains balanced)
+                -   Operations
+                    -   Insertion
+                        -   When a new node is inserted into a red-black tree, it is initially colored red.
+                        -   After insertion, if the tree violates any of the red-black tree properties, a series of rotations and recoloring operations are performed to restore balance.
+                        -   The insertion algorithm ensures that the black depth property is maintained and that no two consecutive red nodes exist along any path
+
+                        -   Cases Requiring Recoloring and Rotations
+                            -   Case 1: Red-Red Violation - Parent's Sibling is Red (Uncle is Red)
+                                -   Scenario: After inserting a new red node, if its parent is also red (i.e., red-red violation), and the uncle of the new node (the sibling of the parent) is also red.
+                                -   Solution: In this case, recoloring is done to balance the tree. The parent and the uncle of the new node are colored black, while the grandparent (parent's parent) is colored red. This effectively moves the red-red violation up the tree. Then, we check if the properties are still violated higher up the tree.
+                                -   Actions: Recoloring
+                            -   Case 2: Red-Red Violation - Parent's Sibling is Black (Uncle is Black or Null)
+                                -   Scenario: After inserting a new red node, if its parent is red and the uncle of the new node (the sibling of the parent) is black or null.
+                                -   Solution: This situation requires rotations and possibly recoloring to maintain the red-black properties.
+                                    -   If the new node and its parent are not on the same side (one is a left child and the other is a right child), double rotation (left-right or right-left rotation) may be necessary.
+                                    -   If the new node and its parent are on the same side (both are left children or both are right children), a single rotation (left-left or right-right rotation) may be sufficient.
+                                    -   In other words,
+                                        -   if parent is left-child from grandparent, ends in left-heavy or left-right situation
+                                        -   if parent is right-child from grandparent, ends in right-heavy or right-left situation
+                                -   Actions: Rotations and possibly recoloring
+                            -   Case 3: Root Node Violation
+                                -   Scenario: After insertion, if the root node becomes red, it violates the property that the root must be black.
+                                -   Solution: Simply recolor the root node to black.
+                                -   Actions: Recoloring
+                        -   Summary of Actions
+                            -   Recoloring: Changing the color of one or more nodes to restore the red-black properties.
+                            -   Rotations: Reorganizing the structure of the tree to maintain balance.
+
+                    -   Deletion
+                        -   Similar to BST & validate properties of Red-Black Tree
+                        -   Cases Requiring Recoloring and Rotations:
+                            -   Case 1: Black Node Deletion - Black Height Violation
+                                -   Scenario: After deleting a black node, if one of its child nodes is red, the black height of the tree decreases on the subtree rooted at the sibling of the deleted node.
+                                -   Solution: This situation requires rebalancing through recoloring and rotations to ensure that the black height property is maintained.
+                                -   Actions: Recoloring and/or rotations
+                            -   Case 2: Double Black Node Deletion
+                                -   Scenario: The "double black" situation occurs in a red-black tree after a black node is deleted, resulting in a violation of the red-black properties. When a black node is removed, it can lead to a decrease in the black height of one or more paths in the tree, causing an imbalance.
+                                -   Consequences: The presence of a "double black" node violates the red-black properties, particularly the black height property, which states that all paths from a node to its descendant leaves must contain the same number of black nodes.
+                                -   Handling the Double Black Situation: The goal is to redistribute or transfer the "double blackness" to other parts of the tree while maintaining the red-black properties.
+                    -   Refer   :   https://www.scaler.com/topics/data-structures/red-black-tree/, https://www.geeksforgeeks.org/insertion-in-red-black-tree/
+

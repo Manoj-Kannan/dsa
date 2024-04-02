@@ -24,6 +24,24 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         return node;
     }
 
+    /*
+    Deletion Operation:
+    Case I
+        The node to be deleted is the leaf node. In such a case, simply delete the node from the tree.
+    Case II
+        The node to be deleted lies has a single child node. In such a case follow the steps below:
+            -   Replace that node with its child node (copy the value to the child node & delete the child node, bcoz deleting leaf nodes is easy).
+            -   Remove the child node from its original position.
+   Case III
+        The node to be deleted has two children. In such a case follow the steps below:
+            -   Get the inorder predecessor of that node (maximum in current root).
+            -   Replace the node with the inorder predecessor (copy the value to the predecessor node & delete the predecessor node).
+            -   Remove the inorder predecessor from its original position.
+            Note:
+                -   Longest left node or Predecessor
+                -   Smallest right node or Successor
+     */
+
     @Override
     public void delete(T data) {
         root = delete(data, root);
