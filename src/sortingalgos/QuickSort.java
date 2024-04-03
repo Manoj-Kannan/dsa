@@ -20,14 +20,29 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T> {
     }
 
     private int partition(int low, int high) {
-        int pivotIndex = (low + high) / 2;
-        swap(pivotIndex, high);
-        int pivotIndexCounter = low;
-        for (int i = low; i < high; i++) {
-            if (arr[i].compareTo(arr[high]) <= 0) swap(pivotIndexCounter++, i);
+        int i = low;
+        T pivot = arr[high];
+
+        for (int j = low; j < high; j++) {
+            if (arr[j].compareTo(pivot) <= 0) {
+                swap(i, j);
+                i++;
+            }
         }
-        swap(pivotIndexCounter, high);
-        return pivotIndexCounter;
+
+        swap(i, high);
+        /*
+        Explanation:
+        1   ->  The pivot element is chosen as the last element of the partitioned array
+        2   ->  This index keeps track of the position where elements less than or equal to the pivot will be placed
+        3   ->  Iterate through the elements of the partition from low to high - 1.
+                At each iteration:
+                    If the current element (arr[j]) is less than or equal to the pivot, swap arr[i] with arr[j] and increment i.
+                    This step ensures that all elements less than or equal to the pivot are moved to the left side of the partition.
+        4   ->  This step places the pivot in its correct position in the sorted array.
+                Elements to the left of the pivot are less than or equal to it, and elements to the right are greater than it.
+         */
+        return i;
     }
 
     private void swap(int firstIndex, int secondIndex) {

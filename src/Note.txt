@@ -5,6 +5,7 @@ Data Structures     - implementation    -   How the behaviours are exhibited
                                         -   (e.g. queue can be implemented ny use of list)
 
 Note:
+Data Structures:::
 Arrays      -   index based
             -   predefined size (allocates sections within the memory)
             -   ideal for item retrieval (if index is known)
@@ -257,3 +258,86 @@ Red-Black Tree  -   Red-Black Trees are balanced binary search trees where nodes
                                 -   Handling the Double Black Situation: The goal is to redistribute or transfer the "double blackness" to other parts of the tree while maintaining the red-black properties.
                     -   Refer   :   https://www.scaler.com/topics/data-structures/red-black-tree/, https://www.geeksforgeeks.org/insertion-in-red-black-tree/
 
+Sorting Algorithms::: (Refer : Programiz, Scaler Topics (https://www.scaler.com/topics/data-structures/))
+Bubble Sort     -   compares two adjacent elements and swaps them until they are in the intended order
+                -   Steps
+                    -	Starting from the first index, compare the first and the second elements.
+                    -	If the first element is greater than the second element, they are swapped.
+                    -	Now, compare the second and the third elements. Swap them if they are not in order.
+                    -	The above process goes on until the last element.
+                -   Note
+                    -   After each iteration, the largest element among the unsorted elements is placed at the end.
+
+Selection Sort  -   works on the idea of repeatedly finding the smallest element and placing it at its correct sorted position.
+                -   It basically selects the smallest element from an unsorted array in each iteration and places that element at the beginning of the unsorted array.
+                -   Steps
+                    -	Initially, our sorted sub-list is totally empty. All the elements are present in the unsorted sub-list. We start with the first element in the array.
+                    -	Iterate over the array to search for the smallest element.
+                    -	Add this element into the sorted sublist, removing it from the unsorted sublist. We can do that by swapping the smallest element, with the element at whose position we want to store it.
+                    -	Repeat the above steps until all the elements from the unsorted sublist are moved to the sorted sublist, and the unsorted subarray becomes empty.
+                -   Note
+                    -   After each iteration, the smallest element among the unsorted elements is placed at the front.
+
+Insertion Sort  -   sorts a list by taking one item at a time and putting it in its correct place among those already sorted
+                -   Steps
+                    -   The first element in the array is assumed to be sorted. Take the second element and store it separately in key.
+                        Compare key with the first element. If the first element is greater than key, then key is placed in front of the first element.
+                    -   Now, the first two elements are sorted. Take the third element and compare it with the elements on the left of it.
+                        Placed it just behind the element smaller than it. If there is no element smaller than it, then place it at the beginning of the array.
+                    -   Similarly, place every unsorted element at its correct position.
+                -   Note
+                    -   for an ith pass, at a max, we would have i number of comparisons, and i possible swaps.
+
+Shell Sort      -   a generalized version of the insertion sort algorithm.
+                -   It first sorts elements that are far apart from each other and successively reduces the interval between the elements to be sorted.
+                -	Gap Sequence
+                		-	Shell's original sequence: N/2 , N/4 , …, 1
+                		-	Knuth's increments: 1, 4, 13, …, (3k – 1) / 2
+                -	Steps
+                		-	Choose a Gap Sequence:
+                				-	The key concept of Shell sort is to sort the elements at a specific interval called the gap.
+                				-	A gap sequence defines the intervals at which elements will be compared and sorted.
+                				-	Common gap sequences include the Knuth sequence (3k + 1), where k is an integer, but other sequences can be used as well.
+                		-	Start with the Widest Gap:
+                			-	Begin by starting with the widest gap (largest interval) defined by the gap sequence.
+                			-	For each gap, iterate through the array and compare elements that are separated by the current gap.
+                			-	Perform insertion sort on each subset of elements at the current gap.
+                		-	Decrease the Gap:
+                			-	After sorting all subsets at the current gap, reduce the gap size.
+                			-	Typically, the gap size is reduced by dividing it by a constant factor until it becomes 1.
+                			-	The gap sequence determines how the gap is reduced.
+                		-	Continue Sorting:
+                			-	Repeat the process of sorting subsets and reducing the gap size until the gap becomes 1.
+                			-	At this point, the algorithm performs a final pass using a gap of 1, effectively reducing to a standard insertion sort.
+                		-	Final Pass with Gap of 1:
+                			-	After reducing the gap to 1, perform a final pass using a gap of 1.
+                			-	This final pass effectively reduces Shell sort to a standard insertion sort.
+                			-	The insertion sort at this stage takes advantage of the partially sorted nature of the array, leading to improved performance.
+                -   Refer   :   https://www.programiz.com/dsa/shell-sort
+
+Merge Sort      -   Merge Sort is one of the most popular sorting algorithms that is based on the principle of Divide and Conquer Algorithm.
+                -   Here, a problem is divided into multiple sub-problems. Each sub-problem is solved individually. Finally, sub-problems are combined to form the final solution.
+                -   Divide and Conquer Algorithm
+                    -   Consider an array A. A subproblem would be to sort a sub-section of this array starting at index p and ending at index r, denoted as A[p..r].
+                    -	Divide
+                    	-	If q is the half-way point between p and r, then we can split the subarray A[p..r] into two arrays A[p..q] and A[q+1, r].
+                    -	Conquer
+                    	-	In the conquer step, we try to sort both the subarrays A[p..q] and A[q+1, r]. If we haven't yet reached the base case (array with single element), we again divide both these subarrays and try to sort them.
+                    -	Combine
+                    	-	When the conquer step reaches the base step and we get two sorted subarrays A[p..q] and A[q+1, r] for array A[p..r], we combine the results by creating a sorted array A[p..r] from two sorted subarrays A[p..q] and A[q+1, r].
+                -   Steps
+                    -	Our task is to merge two subarrays A[p..q] and A[q+1..r] to create a sorted array A[p..r]. So the inputs to the function are A, p, q and r
+                    	-	Create copies of the subarrays L <- A[p..q] and M <- A[q+1..r].
+                    	-	Create three pointers i, j and k
+                    	-	i maintains current index of L, starting at 0
+                    	-	j maintains current index of M, starting at 0
+                    	-	k maintains the current index of A[p..q], starting at p.
+                    	-	Until we reach the end of either L or M, pick the smaller among the elements from L and M and place them in the correct position at A[p..q]
+                    	-	When we run out of elements in either L or M, pick up the remaining elements and put in A[p..q]
+
+Quick Sort      -	Quicksort is a sorting algorithm based on the divide and conquer approach where
+                -	An array is divided into subarrays by selecting a pivot element (element selected from the array).
+                -	Steps
+                	-	While dividing the array, the pivot element should be positioned in such a way that elements less than pivot are kept on the left side and elements greater than pivot are on the right side of the pivot.
+                	-	The left and right subarrays are also divided using the same approach. This process continues until each subarray contains a single element.
+                	-	At this point, elements are already sorted. Finally, elements are combined to form a sorted array.
