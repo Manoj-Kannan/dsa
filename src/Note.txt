@@ -275,6 +275,29 @@ Red-Black Tree  -   Red-Black Trees are balanced binary search trees where nodes
                                 -   Handling the Double Black Situation: The goal is to redistribute or transfer the "double blackness" to other parts of the tree while maintaining the red-black properties.
                     -   Refer   :   https://www.scaler.com/topics/data-structures/red-black-tree/, https://www.geeksforgeeks.org/insertion-in-red-black-tree/
 
+Heap Tree       -   a special case of balanced binary tree data structure (the last level is completely filled (or) filled from left to right, which might not be fully complete)
+                -   the root-node key is compared with its children and arranged accordingly
+                -   Types
+                    -   Min-Heap − Where the value of the root node is less than or equal to either of its children.
+                    -   Max-Heap − Where the value of the root node is greater than or equal to either of its children.
+                -   Implementation
+                    -   Heap Tree is represented using array
+                    -   Formulas to find parent-child relationship
+                        -   leftChild of parent = (2 * parentIndex) + 1
+                        -   rightChild of parent = (2 * parentIndex) + 2
+                        -   parentIndex of child = (childIndex - 1) / 2
+                -	Heap Operations
+                	-	Insertion:
+                		-	Add the new element at the end of the array.
+                		-	Heapify up: Compare the added element with its parent; if the added element is larger (for max heap), swap them.
+                            Repeat until the heap property is restored.
+                	-	Deletion (Removing the root):
+                		-	Replace the root with the last element in the array.
+                		-	Remove the last element.
+                		-	Heapify down: Compare the new root with its children; if it's smaller (for max heap), swap it with the larger child.
+                		    Repeat until the heap property is restored.
+
+
 Sorting Algorithms::: (Refer : Programiz, Scaler Topics (https://www.scaler.com/topics/data-structures/))
 Bubble Sort     -   compares two adjacent elements and swaps them until they are in the intended order
                 -   Steps

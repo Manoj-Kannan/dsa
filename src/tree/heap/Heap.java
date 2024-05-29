@@ -28,6 +28,11 @@ public abstract class Heap<T extends Comparable<T>> implements HeapInterface<T> 
 
     @Override
     public T getRoot() {
+        /*
+        -	Replace the root with the last element in the array.
+        -	Remove the last element.
+        -   Bubble Down (check for heap-properties)
+         */
         if (isEmpty()) {
             return null;
         }
@@ -40,6 +45,17 @@ public abstract class Heap<T extends Comparable<T>> implements HeapInterface<T> 
 
     @Override
     public void sort() {
+        /*
+        MapHeap Sort (results in Ascending Order)
+        - Start from index = 0 (greatest element in MaxHeap)
+        - Swap it with the (position - i) index.
+          So the greatest element is moved to last
+        - Reconstruct the tree (until it obeys Heap-Properties) till (position - i) index.
+          So second-largest element is placed at the top of tree
+        - Repeat the above 2 steps till last index is reached
+
+        MinHeap Sort (results in Descending Order)
+         */
         for (int i = 0; i <= position; i++) {
             swap(0, position - i);
             fixDownward(position - i - 1);
