@@ -134,23 +134,24 @@ Trees       -   Undirected, Connected, Acyclic Graphs
                 -   It is the link between any two nodes.
             -   Root
                 -   It is the topmost node of a tree.
-            -   Depth of a Node
+            -   Depth of a Node (top to down - depth of root - 0, depth of first child - 1, depth of grand child (from root) - 2)
                 -   The depth of a node is the number of edges from the root to the node.
             -   Height of a Node
                 -   The height of a node is the number of edges from the node to the deepest leaf (i.e. the longest path from the node to a leaf node)
-            -   Height of a Tree
+            -   Height of a Tree (down to top - height of grand child (from root) - 0, height of parent (child of root) - 1, height of root - 2)
+                -   Reverse of depth
                 -   The height of a Tree is the height of the root node or the depth of the deepest node.
             -   To be a tree, a node can be reached in only one direction (i.e. no. of edges = no. of nodes - 1)
 
-Tree Traversal  -   Inorder traversal
+Tree Traversal  -   Inorder traversal (Root middle)
                     -   Visit all the nodes in the left subtree
                     -   Then the root node
                     -   Visit all the nodes in the right subtree
-                -   Preorder traversal
+                -   Preorder traversal (Root first)
                     -   Visit root node
                     -   Visit all the nodes in the left subtree
                     -   Visit all the nodes in the right subtree
-                -   Postorder traversal
+                -   Postorder traversal (Root last)
                     -   Visit all the nodes in the left subtree
                     -   Visit all the nodes in the right subtree
                     -   Visit the root node
@@ -173,31 +174,47 @@ AVL Tree    -   If the tree is not a balanced tree (tree contains only right sub
 
             -   Rotations
                 -   Rotations are fundamental operations used in AVL trees to maintain balance after insertion or deletion of nodes.
+                -   Imbalance always occurs in grandparent (root) node (can be determined by balance of root node)
                 -   Rotations are done only on 3 nodes, including the unbalanced node.
                 -   Left Rotation (anti-clockwise rotation)
                     -   Caused due to Right-Right Insertion of New-Node
+                    -   imbalance in right child and right sub-tree
                     -   solves Right-Heavy Situation --> balance factor < -1 (-ve)
                     -   If a node is added to the right subtree of the right subtree, if the tree gets out of balance, we do a single left rotation.
                     -   e.g. 10, 20, and 30
                 -   Right Rotation (clockwise rotation)
                     -   Caused due to Left-Left Insertion of New-Node
+                    -   imbalance in left child and left sub-tree
                     -   solves Left-Heavy Situation --> balance factor > 1 (+ve)
                     -   If a node is added to the left subtree of the left subtree, the AVL tree may get out of balance, we do a single right rotation.
                     -   e.g. 30, 20, and 10
-                -   Left-Right Rotation
+                -   Right-Left Rotation
                     -   Caused due to Right-Left Insertion of New-Node
+                    -   imbalance in right child and left sub-tree
                     -   balance of parent - +ve, balance of grandparent - -ve (parent - parent of newly inserted node, grandparent - parent of parent of newly inserted node)
                     -   Steps:
                         -   Solve Left-Heavy Situation in Parent (+ve balance) with Right Rotation
                         -   Solve Right-Heavy Situation in GrandParent (-ve balance) with Left Rotation
-                    -   e.g. 30, 10, and 20
-                -   Right-Left Rotation
+                    -   e.g. 20, 30, and 10
+                -   Left-Right Rotation
                     -   Caused due to Left-Right Insertion of New-Node
+                    -   imbalance in left child and right sub-tree
                     -   balance of parent - -ve, balance of grandparent - +ve
                     -   Steps:
                         -   Solve Right-Heavy Situation in Parent (-ve balance) with Left Rotation
                         -   Solve Left-Heavy Situation in GrandParent (+ve balance) with Right Rotation
-                    -   e.g. 10, 30, and 20
+                    -   e.g. 30, 10, and 20
+
+                - Summary
+                    -   child - newly inserted node, parent - parent of newly inserted node, grandparent - parent of parent of newly inserted node
+                    -   Left-Left Insertion     -   imbalance in grandparent        -   perform Right Rotation on grandparent
+                    -   Right-Right Insertion   -   imbalance in grandparent        -   perform Left Rotation on grandparent
+                    -   Left-Right Insertion    -   imbalance in grandparent
+                                         1st    -   imbalance in parent (-ve)       -   perform Left Rotation on parent
+                                         2nd    -   imbalance in grandparent (+ve)  -   perform Right Rotation on grandparent
+                    -   Right-Left Insertion    -   imbalance in grandparent
+                                         1st    -   imbalance in parent (+ve)       -   perform Right Rotation on parent
+                                         2nd    -   imbalance in grandparent (-ve)  -   perform left Rotation on grandparent
 
             -   Operations
                 -   Insertion

@@ -2,12 +2,13 @@ package graph.dfs;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class DepthFirstSearch<T> {
 
     // This one will visit the last child first
     public void traverse(Vertex<T> startVertex) {
-        Deque<Vertex<T>> stack = new LinkedList<>();
+        Stack<Vertex<T>> stack = new Stack<>();
         stack.push(startVertex);
 
         while (!stack.isEmpty()) {

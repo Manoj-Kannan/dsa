@@ -1,6 +1,9 @@
 package linkedlist;
 
 public class LinkedList<T> implements List<T> {
+    // root should always point to first node, but here it points to last node
+    // so make use of 2 nodes, first & last
+    // first - points to first node (root), last - points to last node
     private Node<T> root;
     private int size;
 

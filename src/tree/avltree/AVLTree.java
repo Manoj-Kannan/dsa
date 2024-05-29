@@ -105,14 +105,14 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
 
     private Node<T> applyRotation(Node<T> node) {
         int balance = balance(node);
-        if (balance > 1) {
-            if (balance(node.getLeftChild()) < 0) {
+        if (balance > 1) {                                              // Left-Left Insertion - so right rotate on grandparent
+            if (balance(node.getLeftChild()) < 0) {                     // Left-Right Insertion - so left rotate on parent
                 node.setLeftChild(rotateLeft(node.getLeftChild()));
             }
             return rotateRight(node);
         }
-        if (balance < -1) {
-            if (balance(node.getRightChild()) > 0) {
+        if (balance < -1) {                                             // Right-Right Insertion - so left rotate on grandparent
+            if (balance(node.getRightChild()) > 0) {                    // Right-Left Insertion - so right rotate on parent
                 node.setRightChild(rotateRight(node.getRightChild()));
             }
             return rotateLeft(node);
