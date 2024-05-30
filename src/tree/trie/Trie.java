@@ -5,6 +5,27 @@ import java.util.List;
 import java.util.Map;
 
 public class Trie implements TrieInterface {
+    /*
+    Sample Structure - words "hello", "hell", "heaven", and "heavy".
+                    (root)
+                    /    \
+                   h      h
+                  /      / \
+                 e      e   e
+                / \      \   \
+               l   a      a   a
+              / \   \      \   \
+             l   v   v      v   v
+            /     \   \      \   \
+           o       e   y      e   y
+           |        |   |      |  |
+         (end)     n  (end)   n  (end)
+                   |           |
+                 (end)        v
+                               |
+                             (end)
+
+     */
 
     private final Node root;
 
@@ -55,6 +76,17 @@ public class Trie implements TrieInterface {
 
     @Override
     public List<String> wordsWithPrefix(String prefix) {
+        /*
+        Source Map  -> car, careful, cart
+        prefix      -> car
+
+        Steps:
+        1 -> find last node, node 'r'
+        2 -> get its children -> 'e', 't'
+        3 -> loop over the child nodes and repeat steps 1 & 2
+             -> append 'car' with 'e' and repeat steps 1 & 2
+             -> append 'car' with 't' and repeat steps 1 & 2
+         */
         List<String> words = new ArrayList<>();
         Node prefixNode = search(prefix);
         if (prefixNode != null) {
@@ -67,14 +99,26 @@ public class Trie implements TrieInterface {
         if (node.isEndOfWord()) {
             wordList.add(word);
         }
-        node.getChildren().values().forEach(child -> {
+        for (Node child : node.getChildren().values()) {
             String character = String.valueOf(child.getCharacter());
             addWords(child, word.concat(character), wordList);
-        });
+        }
     }
 
     @Override
     public void delete(String word) {
+        /*
+        Source Map  - applicative, application
+        To delete   - applicative
+
+        Steps:
+        1 -> Get all nodes in the word 'a', 'p', 'p', 'l', ... 'v', 'e'
+        2 -> set endOfWord - false for last node 'e'
+        3 -> loop from bottom to top (so that we can check the sharing of character between words)
+             cases:
+             1) current node is end of other word -> stop deletion of node
+             2) no children found -> delete node
+         */
         List<Node> list = new ArrayList<>();
         Map<Character, Node> children = root.getChildren();
         for (char c : word.toCharArray()) {
@@ -85,10 +129,12 @@ public class Trie implements TrieInterface {
             children = currentNode.getChildren();
             list.add(currentNode);
         }
+
         if (list.isEmpty() || list.size() != word.length()) {
             return;
         }
         list.get(list.size() - 1).setEndOfWord(false);
+
         for (int i = list.size() - 1; i > 0; i--) {
             Node current = list.get(i);
             if (current.isEndOfWord()) {

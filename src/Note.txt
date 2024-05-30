@@ -297,6 +297,20 @@ Heap Tree       -   a special case of balanced binary tree data structure (the l
                 		-	Heapify down: Compare the new root with its children; if it's smaller (for max heap), swap it with the larger child.
                 		    Repeat until the heap property is restored.
 
+Trie            -   tree-like data structure that stores a dynamic set of strings, where the keys are usually strings
+                -	Characteristics of Trie
+                	-	Nodes and Edges: Each node represents a character of the string, and each edge represents the transition between characters.
+                	-	Root Node: Represents an empty string.
+                	-	Children: Each node can have multiple children, and each child node represents a subsequent character in a string.
+                	-	End-of-Word Marker: Special markers or flags in the nodes to indicate the end of a valid word.
+                -	Advantages of Trie
+                	-	Prefix Search: Efficient for searching words that share common prefixes.
+                	-	Auto-complete: Useful in applications like auto-complete, spell checkers, and IP routing.
+                	-	Space Efficiency: Can be more space-efficient than storing all words separately if many words share common prefixes.
+                -   Applications
+                    -   Spell Checkers, Dictionary Implementation, Search Engine Indexing, Data Compression, IP Routing, Dynamic String Matching
+
+
 
 Sorting Algorithms::: (Refer : Programiz, Scaler Topics (https://www.scaler.com/topics/data-structures/))
 Bubble Sort     -   compares two adjacent elements and swaps them until they are in the intended order
