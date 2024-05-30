@@ -1,4 +1,4 @@
-package linkedlist;
+package linkedlist.singlylinkedlist;
 
 public interface List<T> {
     void insert(T data);

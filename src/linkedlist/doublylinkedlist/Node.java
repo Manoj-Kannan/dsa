@@ -1,4 +1,4 @@
-package doublylinkedlist;
+package linkedlist.doublylinkedlist;
 
 import lombok.Getter;
 import lombok.Setter;

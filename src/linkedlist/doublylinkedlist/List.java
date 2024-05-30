@@ -1,4 +1,4 @@
-package doublylinkedlist;
+package linkedlist.doublylinkedlist;
 
 public interface List<T> {
     void insertAtHead(T data);

@@ -1,4 +1,4 @@
-package doublylinkedlist;
+package linkedlist.doublylinkedlist;
 
 public class DoublyLinkedList<T> implements List<T> {
     private Node<T> head;

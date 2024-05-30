@@ -1,4 +1,4 @@
-package linkedlist;
+package linkedlist.singlylinkedlist;
 
 public class LinkedList<T> implements List<T> {
     // root should always point to first node, but here it points to last node

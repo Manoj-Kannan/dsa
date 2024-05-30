@@ -1,4 +1,4 @@
-package linkedlist;
+package linkedlist.singlylinkedlist;
 
 import lombok.Data;
 import lombok.Getter;
