@@ -1,5 +1,8 @@
 package graph.impl;
 
+import lombok.Data;
+
+@Data
 public class Node {
     private String label;
 

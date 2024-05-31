@@ -40,5 +40,49 @@ public class Main {
         System.out.println("======================================");
         graph.bfsIterative("C");
         System.out.println("======================================\n");
+
+        // Topological Sort
+        GraphAdvanced topologicalGraph = new GraphAdvanced();
+        topologicalGraph.addNode("A");
+        topologicalGraph.addNode("B");
+        topologicalGraph.addNode("P");
+        topologicalGraph.addNode("X");
+
+        topologicalGraph.addEdge("X", "A");
+        topologicalGraph.addEdge("X", "B");
+        topologicalGraph.addEdge("A", "P");
+        topologicalGraph.addEdge("B", "P");
+
+        System.out.println("Topological Sort");
+        System.out.println("======================================");
+        var topologicalSort = topologicalGraph.topologicalSort();
+        System.out.println(topologicalSort);
+        System.out.println("======================================\n");
+
+        // Cycle Detection
+        GraphAdvanced noCycleGraph = new GraphAdvanced();
+        noCycleGraph.addNode("A");
+        noCycleGraph.addNode("B");
+        noCycleGraph.addNode("C");
+
+        noCycleGraph.addEdge("A", "B");
+        noCycleGraph.addEdge("B", "C");
+        noCycleGraph.addEdge("A", "C");
+
+        System.out.println("Cycle Detection");
+        System.out.println("======================================");
+        System.out.println("Graph 1 - " + noCycleGraph.hasCycle());
+
+        GraphAdvanced cycleGraph = new GraphAdvanced();
+        cycleGraph.addNode("A");
+        cycleGraph.addNode("B");
+        cycleGraph.addNode("C");
+
+        cycleGraph.addEdge("A", "B");
+        cycleGraph.addEdge("B", "C");
+        cycleGraph.addEdge("C", "A");
+
+        System.out.println("Graph 2 - " + cycleGraph.hasCycle());
+        System.out.println("======================================\n");
     }
 }

@@ -4,9 +4,9 @@ import java.util.*;
 
 public class Graph {
     // our structure responsible for keeping track of existing String labels/ nodes in our graph.
-    private Map<String, Node> nodes = new HashMap<>();
+    protected Map<String, Node> nodes = new HashMap<>();
     // representation of our graph using a Map, with Nodes as our keys, and Lists of nodes keeping track of our edges.
-    private Map<Node, List<Node>> adjacencyList = new HashMap<>();
+    protected Map<Node, List<Node>> adjacencyList = new HashMap<>();
 
     public void addNode(String label) {
         Node node = new Node(label);
