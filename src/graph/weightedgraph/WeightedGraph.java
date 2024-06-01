@@ -23,6 +23,10 @@ public class WeightedGraph {
         toNode.addEdge(fromNode, weight);
     }
 
+    public boolean containsNode(String label) {
+        return nodes.containsKey(label);
+    }
+
     public void print() {
         for (var node : nodes.values()) {
             var edges = node.getEdges();
@@ -86,5 +90,55 @@ public class WeightedGraph {
             }
         }
         return false;
+    }
+
+    /*
+    Prims Algorithm:
+        -   start from a node (add it to new tree)
+        -   choose the next node via the edge with low cost (weight between nodes) and reach it (add the edge to new tree)
+        -   repeat STEP1 & STEP2 without forming a cycle (never visit a node twice)
+     */
+    public WeightedGraph constructSpanningTree() {
+        WeightedGraph spanningTree = new WeightedGraph();
+        if (nodes.isEmpty()) {
+            return spanningTree;
+        }
+
+        // Sort edges with Priority as Weight (since we need low cost tree)
+        PriorityQueue<Edge> edges = new PriorityQueue<>(
+                Comparator.comparingInt(Edge::getWeight)
+        );
+
+        Node currNode = nodes.values().iterator().next();
+        edges.addAll(currNode.getEdges());
+        spanningTree.addNode(currNode.getLabel());
+
+        if (edges.isEmpty()) {
+            return spanningTree;
+        }
+
+        while (spanningTree.nodes.size() < nodes.size()) {
+            // after adding new edge, since we use PriorityQueue, it gets sorted and we make use of edge with low cost
+            var minEdge = edges.remove();
+            var nextNode = minEdge.getTo();
+
+            // if a nodes is already reached, skip it (since it can form cycle)
+            if (spanningTree.containsNode(nextNode.getLabel())) {
+                continue;
+            }
+
+            // add the newNode reached via edge with low cost
+            spanningTree.addNode(nextNode.getLabel());
+            spanningTree.addEdge(minEdge.getFrom().getLabel(), nextNode.getLabel(), minEdge.getWeight());
+
+            // check non-visited nodes and add corresponding edge to resultTree
+            for (var edge : nextNode.getEdges()) {
+                if (!spanningTree.containsNode(edge.getTo().getLabel())) {
+                    edges.add(edge);
+                }
+            }
+        }
+
+        return spanningTree;
     }
 }

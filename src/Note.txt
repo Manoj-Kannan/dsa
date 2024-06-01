@@ -69,7 +69,13 @@ Graph       -   a collection of nodes that have data and are connected to other 
                     -   The index of the array represents a vertex and each element in its linked list represents the other vertices that form an edge with the vertex
             -   Spanning Tree:
                 -   a sub-graph of a undirected, cyclic, connected graph, which includes all vertices with minimum possible number of edges (no vertex should be missed)
-                -   For a undirected, cyclic, connected graph with 4 vertices, 16 spanning trees can be formed (n^(n-2))
+                -   Graph is converted to a tree (Directed Acyclic Graph) with less cost (sum of weights to move between all nodes)
+                -   eg: No of Nodes - 4,
+                    -   if No of Edges = n = 4, it is a graph (cycle formed)
+                    -   if No of Edges = (n-1) = 3, it is a tree (no cycle formed)
+                    -   No of Spanning Trees (that can be formed) = (n^(n-2)) = 16
+                    -   So, goal is to reduce no. of edges of a graph and to create a tree.
+                -   implemented using Priority Queues & Weighted Graphs
                 -   Applications: Network Routing Protocols, CLuster Analysis
 
 Breadth First Search    -   traverses a graph by visiting every vertex only once
