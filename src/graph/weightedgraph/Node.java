@@ -1,10 +1,10 @@
 package graph.weightedgraph;
 
-import lombok.Data;
+import lombok.Getter;
 
 import java.util.*;
 
-@Data
+@Getter
 public class Node {
     private String label;
     private List<Edge> edges = new ArrayList<>();

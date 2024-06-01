@@ -1,8 +1,8 @@
 package graph.weightedgraph;
 
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 public class Edge {
     private Node from;
     private Node to;

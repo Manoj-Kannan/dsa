@@ -11,5 +11,10 @@ public class Main {
         weightedGraph.addEdge("A", "C", 2);
 
         weightedGraph.print();
+
+        // Cycle Detection
+        System.out.println("Graph 1 - " + weightedGraph.hasCycle());
+        weightedGraph.addEdge("B", "C", 2);
+        System.out.println("Graph 2 - " + weightedGraph.hasCycle());
     }
 }
